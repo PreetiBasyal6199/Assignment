@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>List Bookings</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+      integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: #7abecc !important;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="Search-Form" method="GET" action="/search_booking" >
+      <input list="catagories" name="catagory" /></label>
+
+          </select>
+</form>
+<div class="container">
+  <h1 class="text-center my-5">List Of Bookings</h1>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">First_Name</th>
+        <th scope="col">Gender</th>
+        <th scope="col">DateOfBirth</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Designation</th>
+        <th scope="col">Imported Date</th>
+        <th scope="col">Imported By</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in datas %}
+      <tr>
+        <td>{{item.full_name}}</td>
+        <td>{{item.gender}}</td>
+        <td>{{item.date_of_birth}}</td>
+        <td>{{item.salary}}</td>
+        <td>{{item.designation}}</td>
+        <td>{{item.imported_at}}</td>
+        <td>{{item.imported_by}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+    
+  </body>
+</html>
