@@ -49,7 +49,7 @@ def import_data(request):
                   new_data.save() 
                   datas=New_Data.objects.all()
                 else:
-                    print  ("The field is empty")
+                    messages.error(request,"The data is empty")
            
                  
          return render(request,'import_data/list.html',{'datas':datas})
@@ -60,3 +60,4 @@ def SearchView(request):
      item=request.GET.get("catagory")
      datas=New_Data.objects.filter(username=item)| New_Data.objects.filter(imported_at__icontains=item)
      return render(request,'import_data/search.html',{'obj':datas})
+
